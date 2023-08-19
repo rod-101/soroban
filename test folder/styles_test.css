@@ -1,0 +1,45 @@
+.container {
+    background-color: bisque;
+    width: 300px;
+    height:320px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .5fr .3fr 1fr;
+}
+
+.input_container {
+    background-color: beige;
+    display: grid;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.keys {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    background-color: aliceblue;
+    justify-items: center;
+    align-items: center;
+}
+
+.problem_header {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.problem_container {
+    background-color: seashell;
+    display: grid;
+    justify-content: center;
+}
+
+.problem {
+    font-size: 20px;
+}
+
+.alarm {
+    font-size: 20px;
+}

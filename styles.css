@@ -1,0 +1,127 @@
+/* LOGIN AND SIGNUP PAGE */
+input {
+    display: block;
+    margin: auto;
+    margin-bottom: 5px;
+    height: 25px;
+    width: 250px;
+    
+}
+
+.input_container {
+    text-align: center;
+}
+
+.form_container {
+    background-color: bisque;
+    position: relative;
+    top: 2rem;
+    height: 200px;
+    width: 360px;
+    padding: 20px;
+    margin: auto;
+}
+
+.form_header {
+    font-size: 28px;
+    text-align: center;
+}
+
+#login_button {
+    display: block;
+    width: 70px;
+    margin: auto;
+    margin-bottom: 25px;
+}
+
+#linkto_signup {
+    text-align: center;
+    margin: 0px;
+    margin-top: 10px;
+}
+
+.horizontal_line {
+    height: 4px;
+    background-color: black;
+
+}
+
+/* HOME PAGE */
+
+#home_container {
+    background-color: pink;
+    width: 500px;
+    height: 17rem;
+    margin: auto;
+    margin-top: 2rem;
+    text-align: center; 
+    position: relative;
+}
+
+.small_container {
+    height: 70px;
+    width: 150px;
+    background-color: peachpuff;
+    border-color: green;
+}
+
+#games_container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#playername {
+    font-size: 30px;
+}
+
+#home_header {
+    background-color: steelblue;
+    position: relative;
+}
+
+/*CATEGORY PAGE*/
+.arithmetic_container {
+    display: grid;
+    height: inherit;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+#replacement_header {
+    background-color: lightgreen;
+    margin: 0 0 5px 0;
+    text-align: center;
+}
+
+.mm_subgames {
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin: 20px;
+    text-align: center;
+}
+
+.grid_container {
+    background-color: skyblue;
+    height: 300px;
+    width: 550px;
+    margin: auto;
+}
+
+.addition_container {
+    text-align: center;
+}
+
+.add {
+    padding:  5px;
+}
+
+.add:hover {
+    background-color: grey;
+}
+
+.display_problem {
+    width: 500px;
+    height: 70px;
+    background-color: green;
+}
