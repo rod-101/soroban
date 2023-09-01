@@ -12,19 +12,19 @@
     //if wrong, display wrong
         //do not proceed to another problem    
 
-var userAnswer = document.querySelector('.user_answer').innerHTML;
-var rightAnswer = 0;
-var firstOperand = 0;
-var secondOperand = 0;
+let rightAnswer = 0;
+let firstOperand = 0;
+let secondOperand = 0;
 let userAnswerStyle = document.querySelector('.user_answer');
-
+let problem = document.querySelector('.problem').innerHTML;
+let userAnswer = document.querySelector('.user_answer').innerHTML;
 
 
 
 //MAIN GAME FUNCTION
 function startGame() {
     let allNumKeys = document.querySelectorAll('.keynum');
-    function clickableKeys() {
+    (function clickableKeys() {
         for (let i = 0; i < allNumKeys.length; i++){
             allNumKeys[i].addEventListener('click', () => {
                 let num = allNumKeys[i].innerHTML;
@@ -33,44 +33,55 @@ function startGame() {
                 console.log(typeof(userAnswer), userAnswer)
             })
         }
-    }
+    })();
 
-    //creates the next problem
-    function nextProblem() {
-        firstOperand = Math.floor(Math.random() * 8 + 2);
-        secondOperand = Math.floor(Math.random() * 89 + 10);
-        rightAnswer = firstOperand * secondOperand; 
-    }
-
-    //checks answer
-    function checkAnswer() {
-        console.log(rightAnswer)
-        if (userAnswer == rightAnswer) {
-            userAnswerStyle.style.backgroundColor = 'green'         
-        } else {
-            userAnswerStyle.style.backgroundColor = 'red'
-        }
-    }    
-
-    //delete button
-    function backspace() {
-        if (userAnswer.length > 0) {
-            let sliced = userAnswer.substring(0, userAnswer.length -1)
-            userAnswer = sliced;
-            document.querySelector('.user_answer').innerHTML = userAnswer;
-            console.log(userAnswer)
-        }
-    }
-    
-    //clickable keys initialization
-    clickableKeys();    
-
+    //first problem
     nextProblem();
     console.log(firstOperand, secondOperand, rightAnswer)
-
-
-    return {checkAnswer};
 }
 
 //FIX BUG: the delete and check buttons call startGame() so startGame function is called whenever delete or check buttons are clicked, that's inefficiency!!!.
 
+function clear() {
+    userAnswer = "";
+}
+
+//creates the next problem
+function nextProblem() {
+    firstOperand = Math.floor(Math.random() * 8 + 2);
+    secondOperand = Math.floor(Math.random() * 89 + 10);
+    rightAnswer = firstOperand * secondOperand; 
+    document.querySelector('.problem').innerHTML = firstOperand + " x " + secondOperand; 
+}
+
+//checks answer
+function check() {
+    let counter = 0;
+    return function checkAnswer() {
+        if (userAnswer == rightAnswer) {
+            userAnswerStyle.style.backgroundColor = 'green'   
+            nextProblem();      
+            counter++;
+            console.log(counter);
+            console.log(rightAnswer);
+            if (counter >= 5) {
+                console.log('end game')
+            }
+            // userAnswerStyle.style.backgroundColor = 'rgb(244, 242, 222)';
+        } else {
+            userAnswerStyle.style.backgroundColor = 'red'
+        }
+    }
+}
+
+let checkUserAnswer = check();
+
+//delete button
+function backspace() {
+    if (userAnswer.length > 0) {
+        let sliced = userAnswer.substring(0, userAnswer.length -1)
+        userAnswer = sliced;
+        document.querySelector('.user_answer').innerHTML = userAnswer;
+        console.log(userAnswer)
+    }
+}

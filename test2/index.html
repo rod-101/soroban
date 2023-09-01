@@ -11,7 +11,7 @@
         <div class="upper_container">
             <div class="renderer">
                 <h3 class="header">Solve:</h3>
-                <div class="problem">3 x 49</div>
+                <div class="problem"></div>
             </div>
         </div>
 
@@ -28,11 +28,12 @@
             <div class="key keynum">8</div>
             <div class="key keynum">9</div>
             <div class="key keynum">0</div>
-            <div class="key delete" onclick="startGame().backspace()">delete</div>
-            <div class="key check" onclick="startGame().checkAnswer()">check</div>
+            <div class="key delete" onclick="backspace()">delete</div>
+            <div class="key check" onclick="checkUserAnswer()">check</div>
         </div>
     </div>
-    <button onclick="startGame()">Start</button>
+    <button class="start" onclick="startGame()">Start</button>
+    <button class="start" onclick="clear()">clear</button>
     <script src="script.js"></script>
 </body>
 </html>
