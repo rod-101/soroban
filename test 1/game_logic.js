@@ -6,6 +6,9 @@
     5. loops 4 more times
 */
 
+let counter = 0;
+let userAnswer = document.querySelector('.user_answer');
+
 function problemGenerator() {
     let firstOperand = Math.floor(Math.random() * 8 + 2);
     let secondOperand = Math.floor(Math.random() * 8 + 2);
@@ -20,22 +23,22 @@ function session() {
     }
 }
 
-let counter = 0;
 function counterIncrement() {
     counter++
     return counter;
 }
 
-let userAnswer = document.querySelector('.user_answer');
 function check() {
-    if (userAnswer.value == 10) {
-        console.log('user input')
+    let rightAnswer = problemGenerator();
+    if (userAnswer.value == rightAnswer) {
+        console.log('you are correct!')
     } else {
-        console.log('do nothing');
+        console.log('wrong answer');
     }
     // console.log(problemGenerator.rightAnswer);
     // if (userAnswer == problemGenerator.rightAnswer) {
 
     // }
 }
+
 
