@@ -42,8 +42,8 @@ function startGame() {
 
 //FIX BUG: the delete and check buttons call startGame() so startGame function is called whenever delete or check buttons are clicked, that's inefficiency!!!.
 
-function clear() {
-    userAnswer = "";
+function clearContent() {
+    userAnswer = document.querySelector('.user_answer').innerHTML = ""; 
 }
 
 //creates the next problem
@@ -59,7 +59,7 @@ function check() {
     let counter = 0;
     return function checkAnswer() {
         if (userAnswer == rightAnswer) {
-            userAnswerStyle.style.backgroundColor = 'green'   
+            userAnswerStyle.style.backgroundColor = 'green';
             nextProblem();      
             counter++;
             console.log(counter);
@@ -71,6 +71,7 @@ function check() {
         } else {
             userAnswerStyle.style.backgroundColor = 'red'
         }
+        clearContent();
     }
 }
 
