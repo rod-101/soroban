@@ -71,6 +71,8 @@ function check() {
         } else {
             userAnswerStyle.style.backgroundColor = 'red'
         }
+        //added transition to the original color
+        document.querySelector('.user_ answer').style.backgroundColor = "rgb(244, 242, 222)";
         clearContent();
     }
 }
