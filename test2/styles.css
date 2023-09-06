@@ -55,7 +55,7 @@ h3 {
     text-align: center;
     border-radius: 10px;
     margin-bottom: 20px;
-    transition: background-color, 500ms;
+    transition: background-color, 1000ms;
 }
 
 .upper_container {

@@ -40,10 +40,14 @@ function startGame() {
     console.log(firstOperand, secondOperand, rightAnswer)
 }
 
-//FIX BUG: the delete and check buttons call startGame() so startGame function is called whenever delete or check buttons are clicked, that's inefficiency!!!.
+function gameTransition() {
+    setTimeout(() => {
+        userAnswer = document.querySelector('.user_answer').innerHTML = "";
+    }, 1000);
 
-function clearContent() {
-    userAnswer = document.querySelector('.user_answer').innerHTML = ""; 
+    setTimeout(() => { 
+        userAnswerStyle.style.backgroundColor = 'rgb(244, 242, 222)'
+    }, 800)
 }
 
 //creates the next problem
@@ -53,6 +57,7 @@ function nextProblem() {
     rightAnswer = firstOperand * secondOperand; 
     document.querySelector('.problem').innerHTML = firstOperand + " x " + secondOperand; 
 }
+
 
 //checks answer
 function check() {
@@ -71,9 +76,7 @@ function check() {
         } else {
             userAnswerStyle.style.backgroundColor = 'red'
         }
-        //added transition to the original color
-        document.querySelector('.user_ answer').style.backgroundColor = "rgb(244, 242, 222)";
-        clearContent();
+        gameTransition();
     }
 }
 
