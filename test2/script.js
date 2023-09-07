@@ -40,17 +40,22 @@ function startGame() {
     console.log(firstOperand, secondOperand, rightAnswer)
 }
 
-function gameTransition() {
+//TRANSITION DELAY FOR RIGHT ANSWER
+function rightAnswerTransition() {
     setTimeout(() => {
         userAnswer = document.querySelector('.user_answer').innerHTML = "";
-    }, 1000);
+    },500);
 
     setTimeout(() => { 
         userAnswerStyle.style.backgroundColor = 'rgb(244, 242, 222)'
-    }, 800)
+    }, 300)
 }
 
-//creates the next problem
+function wrongAnswerTransition() {
+    
+}
+
+//CREATES NEXT PROBLEM
 function nextProblem() {
     firstOperand = Math.floor(Math.random() * 8 + 2);
     secondOperand = Math.floor(Math.random() * 89 + 10);
@@ -58,8 +63,7 @@ function nextProblem() {
     document.querySelector('.problem').innerHTML = firstOperand + " x " + secondOperand; 
 }
 
-
-//checks answer
+//CHECKS ANSWER
 function check() {
     let counter = 0;
     return function checkAnswer() {
@@ -72,11 +76,15 @@ function check() {
             if (counter >= 5) {
                 console.log('end game')
             }
+            rightAnswerTransition();
             // userAnswerStyle.style.backgroundColor = 'rgb(244, 242, 222)';
         } else {
-            userAnswerStyle.style.backgroundColor = 'red'
+            userAnswerStyle.style.animation = "wrongAnsAnimation 1000ms 0s 1";
+            userAnswerStyle.style.backgroundColor = 'rgb(190, 35, 35)';
+            if(userAnswerStyle.style.backgroundColor = 'rgb(190, 35, 35)') {
+                document.querySelector('.user_answer').style.color = 'white'
+            }
         }
-        gameTransition();
     }
 }
 
