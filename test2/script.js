@@ -40,13 +40,18 @@ function startGame() {
     console.log(firstOperand, secondOperand, rightAnswer)
 }
 
-//FIX BUG: the delete and check buttons call startGame() so startGame function is called whenever delete or check buttons are clicked, that's inefficiency!!!.
+//TRANSITION DELAY FOR RIGHT ANSWER
+function rightAnswerTransition() {
+    setTimeout(() => {
+        userAnswer = document.querySelector('.user_answer').innerHTML = "";
+    },500);
 
-function clear() {
-    userAnswer = "";
+    setTimeout(() => { 
+        userAnswerStyle.style.backgroundColor = 'rgb(244, 242, 222)'
+    }, 300)
 }
 
-//creates the next problem
+//CREATES NEXT PROBLEM
 function nextProblem() {
     firstOperand = Math.floor(Math.random() * 8 + 2);
     secondOperand = Math.floor(Math.random() * 89 + 10);
@@ -54,27 +59,33 @@ function nextProblem() {
     document.querySelector('.problem').innerHTML = firstOperand + " x " + secondOperand; 
 }
 
-//checks answer
-function check() {
-    let counter = 0;
-    return function checkAnswer() {
-        if (userAnswer == rightAnswer) {
-            userAnswerStyle.style.backgroundColor = 'green'   
-            nextProblem();      
-            counter++;
-            console.log(counter);
-            console.log(rightAnswer);
-            if (counter >= 5) {
-                console.log('end game')
-            }
-            // userAnswerStyle.style.backgroundColor = 'rgb(244, 242, 222)';
-        } else {
-            userAnswerStyle.style.backgroundColor = 'red'
+//BUG: when you check and the answer is wrong, then delete it and now inputs the right answer and checked, the color of the user_answer goes red ang vanish then it does not render anything.
+
+//CHECKS ANSWER
+
+let counter = 0;
+function checkAnswer() {
+    if (userAnswer == rightAnswer) {
+        userAnswerStyle.style.backgroundColor = 'green';
+        nextProblem();      
+        counter++;
+        console.log(counter);
+        console.log(rightAnswer);
+        if (counter >= 5) {
+            console.log('end game')
         }
+        rightAnswerTransition();
+    } else {
+        //adds the animateWrongAnswer animation to the user_answer class if user answers wrong 
+        $('.user_answer').addClass('animateWrongAnswer');
+        //removes the animateWrongAnswer animation after it is finished 
+        window.setTimeout(function() {
+            $('.user_answer').removeClass('animateWrongAnswer');
+        }, 450)
     }
 }
 
-let checkUserAnswer = check();
+
 
 //delete button
 function backspace() {
@@ -85,3 +96,4 @@ function backspace() {
         console.log(userAnswer)
     }
 }
+
