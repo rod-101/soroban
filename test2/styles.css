@@ -72,5 +72,14 @@ h3 {
 
 @keyframes wrongAnsAnimation {
     0% {background-color: rgb(190, 35, 35);}
-    100%{background-color: white;}    
+    50%{background-color: white;}  
+    100% {background-color: rgb(190, 35, 35);}
 }
+
+.animateWrongAnswer {
+    animation-name: wrongAnsAnimation;
+    animation-duration: 150ms;
+    animation-iteration-count: 3;
+}
+
+/* reseting the animation to do multiple blinking effect everytime the checkAnswer is clicked does NOT work */

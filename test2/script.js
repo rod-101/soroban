@@ -51,10 +51,6 @@ function rightAnswerTransition() {
     }, 300)
 }
 
-function wrongAnswerTransition() {
-    
-}
-
 //CREATES NEXT PROBLEM
 function nextProblem() {
     firstOperand = Math.floor(Math.random() * 8 + 2);
@@ -63,32 +59,33 @@ function nextProblem() {
     document.querySelector('.problem').innerHTML = firstOperand + " x " + secondOperand; 
 }
 
+//BUG: when you check and the answer is wrong, then delete it and now inputs the right answer and checked, the color of the user_answer goes red ang vanish then it does not render anything.
+
 //CHECKS ANSWER
-function check() {
-    let counter = 0;
-    return function checkAnswer() {
-        if (userAnswer == rightAnswer) {
-            userAnswerStyle.style.backgroundColor = 'green';
-            nextProblem();      
-            counter++;
-            console.log(counter);
-            console.log(rightAnswer);
-            if (counter >= 5) {
-                console.log('end game')
-            }
-            rightAnswerTransition();
-            // userAnswerStyle.style.backgroundColor = 'rgb(244, 242, 222)';
-        } else {
-            userAnswerStyle.style.animation = "wrongAnsAnimation 1000ms 0s 1";
-            userAnswerStyle.style.backgroundColor = 'rgb(190, 35, 35)';
-            if(userAnswerStyle.style.backgroundColor = 'rgb(190, 35, 35)') {
-                document.querySelector('.user_answer').style.color = 'white'
-            }
+
+let counter = 0;
+function checkAnswer() {
+    if (userAnswer == rightAnswer) {
+        userAnswerStyle.style.backgroundColor = 'green';
+        nextProblem();      
+        counter++;
+        console.log(counter);
+        console.log(rightAnswer);
+        if (counter >= 5) {
+            console.log('end game')
         }
+        rightAnswerTransition();
+    } else {
+        //adds the animateWrongAnswer animation to the user_answer class if user answers wrong 
+        $('.user_answer').addClass('animateWrongAnswer');
+        //removes the animateWrongAnswer animation after it is finished 
+        window.setTimeout(function() {
+            $('.user_answer').removeClass('animateWrongAnswer');
+        }, 450)
     }
 }
 
-let checkUserAnswer = check();
+
 
 //delete button
 function backspace() {
@@ -99,3 +96,4 @@ function backspace() {
         console.log(userAnswer)
     }
 }
+
