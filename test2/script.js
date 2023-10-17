@@ -80,6 +80,7 @@ function checkAnswer() {
     } else {
         //adds the animateWrongAnswer animation to the user_answer class if user answers wrong 
         $('.user_answer').addClass('animateWrongAnswer');
+        
         //removes the animateWrongAnswer animation after it is finished 
         window.setTimeout(function() {
             $('.user_answer').removeClass('animateWrongAnswer');

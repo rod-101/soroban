@@ -1,6 +1,8 @@
 body {
-    display: grid;
-    grid-template-columns: 30%, 40%, 30%;
+    display: flex;
+    width: 360px;
+    height: 640px;
+    justify-content: center;
 }
 
 .container {
@@ -9,6 +11,8 @@ body {
     width: 230px;
     height: 370px;
     border-radius: 10px;
+    position: absolute;
+    top: 93px;
 }
 
 .lower_container {
