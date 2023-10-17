@@ -1,7 +1,5 @@
 body {
     display: flex;
-    width: 360px;
-    height: 640px;
     justify-content: center;
 }
 
