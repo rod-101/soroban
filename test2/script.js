@@ -64,6 +64,8 @@ function nextProblem() {
 //CHECKS ANSWER
 
 let counter = 0;
+let numOfGames = 0;
+
 function checkAnswer() {
     if (userAnswer == rightAnswer) {
         userAnswerStyle.style.backgroundColor = 'green';
@@ -71,10 +73,10 @@ function checkAnswer() {
         counter++;
         console.log(counter);
         console.log(rightAnswer);
+        rightAnswerTransition();
         if (counter >= 5) {
             console.log('end game')
         }
-        rightAnswerTransition();
     } else {
         //adds the animateWrongAnswer animation to the user_answer class if user answers wrong 
         $('.user_answer').addClass('animateWrongAnswer');
@@ -97,3 +99,6 @@ function backspace() {
     }
 }
 
+function showScore() {
+
+}
