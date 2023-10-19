@@ -1,6 +1,10 @@
 body {
+    background-image: url('../images/space2.jpg');
     display: flex;
     justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .container {

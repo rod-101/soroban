@@ -59,10 +59,8 @@ function nextProblem() {
     document.querySelector('.problem').innerHTML = firstOperand + " x " + secondOperand; 
 }
 
-//BUG: when you check and the answer is wrong, then delete it and now inputs the right answer and checked, the color of the user_answer goes red ang vanish then it does not render anything.
 
 //CHECKS ANSWER
-
 let counter = 0;
 let numOfGames = 0;
 
